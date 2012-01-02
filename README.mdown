@@ -1,0 +1,21 @@
+gemly
+=====
+
+Gemly is mainly for doing fun Gem-based analytics.
+
+
+installing
+-----------
+
+First run `ruby pull.rb`, this takes a **while** because you're literally pulling down the entire RubyGems listing.
+From then on you can write scripts like `bundler-or-not.rb` that use `require_relative 'load'` and it'll bootstrap you with a listing of Gemly objects.
+Gemly objects are pretty much just gemspecs as ruby objects, like a gem presenter.
+
+Right now all you have is the `@gems` instance variable, which gives you an array of Gemly objects.
+Eventually I'll have this all built up as a framework, but for now it's just a fun little reporting thing.
+
+
+using
+-----
+
+Take a look at `bundler-or-not.rb`, `github-or-not.rb`, and `semver-or-not.rb`. WARNING: `bundler-or-not.rb` is INCREDIBLY network intensive. You do a LOT of github GET requests.
