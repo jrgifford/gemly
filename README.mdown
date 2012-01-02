@@ -1,6 +1,8 @@
 gemly
 =====
 
+version: 1.0.0
+
 Gemly is mainly for doing fun Gem-based analytics.
 
 
