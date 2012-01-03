@@ -9,11 +9,20 @@ Gemly is mainly for doing fun Gem-based analytics.
 installing
 -----------
 
-If you want fresh rubygem data you'll need to run `ruby pull.rb`, but this is takes at least 45mn due to network requests.
-From then on you can write scripts like `bundler-or-not.rb` that use `require_relative 'load'` and it'll bootstrap you with a listing of Gemly objects.
-Gemly objects are pretty much just gemspecs as ruby objects, like a gem presenter.
+**Requirements**
 
-Right now all you have is the `@gems` instance variable, which gives you an array of Gemly objects.
+1. Ruby 1.9+
+2. Bundler
+
+
+**Setup**
+
+1. To start off you need to run `bundle install` which will install all the dependencies.
+2. If you don't want to use the repo's database, run `ruby pull.rb`. This takes a while.
+3. Otherwise just require `load.rb` in your analytic scripts
+
+Using `load` will give you access to all the gems in the database in the form of Gemly objects.
+Gemly objects are just OpenStruct classes with the gemspec.
 Eventually I'll have this all built up as a framework, but for now it's just a fun little reporting thing.
 
 
@@ -23,3 +32,9 @@ using
 Take a look at `bundler-or-not.rb`, `github-or-not.rb`, and `semver-or-not.rb`.
 WARNING: `bundler-or-not.rb` is INCREDIBLY network intensive. You do a LOT of github GET requests.
 Oh and don't use `crapy_loader.rb`, that's just for old crap I did.
+
+
+license
+-------
+
+MIT License
